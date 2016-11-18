@@ -3,8 +3,7 @@ var app = express();
 var path = require("path");
 var strftime = require("strftime");
 
-var router = express.Router();
-router.get("/api/timestamp/:time", function (req, res) {
+app.get("/api/timestamp/:time", function (req, res) {
   var isDate = function(dateString) {
     var date;
     if(/^\d{8}\d*$/.test(dateString)) {
@@ -26,11 +25,9 @@ router.get("/api/timestamp/:time", function (req, res) {
   }
 });
 
-router.get("/", function(req, res) {
+app.get("*", function(req, res) {
     res.sendFile(path.join(__dirname + "/index.html"));
 });
-
-app.use("/", router);
 
 app.listen(8080, function () {
   console.log("Example app listening on port 8080!");
