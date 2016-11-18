@@ -29,7 +29,7 @@ app.get("*", function(req, res) {
     res.sendFile(path.join(__dirname + "/index.html"));
 });
 
-app.listen(8080, function () {
+app.listen(process.env.PORT || 5000, function () {
   console.log("Example app listening on port 8080!");
 });
 
