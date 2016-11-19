@@ -21,7 +21,7 @@ app.get("/api/timestamp/:time", function (req, res) {
   if (date) {
     res.json({ "unix": Date.parse(date)/1000, "natural": strftime("%B %d, %Y", date) }); 
   } else {
-    res.json({ error: "Input is not date format"  });
+    res.json({ "unix": null, "natural": null  });
   }
 });
 
